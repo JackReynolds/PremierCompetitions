@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+
+<section id="main">
+      <header class="bg-gradient" id="home">
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col text-center">
+                  <h1 class="main-heading animated fadeIn slow">Welcome To <span class="second-name animated fadeIn slow delay-1s">Premier Competitions</span></h1>
+                  <h3 class="main-secondary-heading animated fadeInUp delay-2s slow">Scroll down to see our latest competitions</h3>
+                  <a href="#showcase-inner-latest-competitions" class="btn btn-outline-light btn-click mt-5 animated fadeIn delay-3s slow" id="seeBelow"><i class="fas fa-angle-double-down"></i></a><br>
+                  <!-- Alerts -->
+                  {% include 'partials/_alerts.html' %}    
+              </div>
+            </div>
+          </div>
+          <div class="img-holder mt-5"><img src="" alt="" class="img-fluid"></div>
+            <div class="container-fluid text-center">
+              </div>
+            </div>
+          </div>
+      </header>
+  </section>
+
+<!-- Latest Competitions Image  -->
+<section id="showcase-inner-latest-competitions" class="text-white mt-3">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h1 class="display-4 section-heading latest-competitions-heading">Latest Competitions</h1>
+            <p class="lead"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- Latest Competitions -->
+<section id="competitions" class="py-5">
+   <div class="container wrapper">
+     <!-- <h3 class="text-center mb-4 latest-competitions-heading">Latest Competitions</h3> -->
+     <div class="row justify-content-center">
+       {% if competitions %}
+        {% for competition in competitions %}
+       <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card listing-preview">
+              <img class="card-img-top competitions-card-image" src="{{ competition.photo_main.url }}" alt="" style="width: 350px text-align: center; height: 300px;">
+              <div class="card-body">
+                <div class="listing-heading text-center">
+                  <h4 class="text-primary">{{ competition.title }}</h4>
+                </div>
+                <hr>
+                <div class="row py-2 text-dark">
+                  <div class="col text-center">
+                    <i class="fas fa-ticket-alt"></i> <span class="competitions-text">Number of tickets: {{ competition.number_of_tickets }}</span></div>
+                </div>
+                <hr>
+                <div class="row py-2 text-dark">
+                     <div class="col text-center">
+                       <i class="fas fa-money-bill"></i> <span class="competitions-text">Ticket Price: 
+                        {% if competition.sale_ticket_price %} 
+                        <strike>€ {{ competition.price_of_ticket }}</strike> &nbsp; €{{ competition.sale_ticket_price }}</span></div>
+                        {% else %}
+                          {{ competition.price_of_ticket }}</span></div>
+                        {% endif %}
+                   </div>
+                   <hr>
+                <div class="row text-dark pb-2">
+                  <div class="col text-center">
+                    <i class="fas fa-clock"></i> <span class="competitions-text"> Started: {{ competition.list_date }}</span></div>
+                </div>
+                <hr>
+                <a href="{{ competition.get_url }}" class="btn btn-dark btn-block">More Info</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <h1>No Competitions Available Yet</h1>
+          </div>
+        {% endif %}
+     </div>
+   </div>
+ </section>
+
+<!-- How it works -->
+<section id="howItWorks">
+   <div class="container-fluid">
+      <div class="row how-it-works">
+         <div class="col-md-5 text-center">
+            <h3 class="how-it-works-heading">How It Works</h3>
+         </div>
+         <div class="col-md-7 how-it-works-text">
+            <p>Welcome to Premier Competitions! We hope you enjoy your time browsing our amazing prizes up for grabs.<br> To get started, see the below steps and be sure to email us at premiumcompetitions@gmail.com if you have any questions or concerns.</p>
+            <p>Here's how to get started:</p>
+            <ul>
+               <li>
+                  Find a competition you want to enter
+               </li>
+               <li>
+                  Click "More Info"
+               </li>
+               <li>
+                  Select how many numbers you would like to take
+               </li>
+               <li>
+                  Answer our skill based qualifying question 
+               </li>
+               <li>
+                  Complete your payment
+               </li>
+               <li>
+                  Provided you have answered the question correctly, you will receive an email with confirmation of your payment and ticket number
+               </li>
+               <li>
+                  Check the details of the competition to see when the live draw will be taking place
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>  
+
+<section id="showcase-inner-previous-winners" class="text-white mt-3">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h1 class="display-4 section-heading previous-winners-heading">Check Out Our Previous Winners</h1>
+            <p class="lead"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Previous Winners -->
+<section id="previous-winners">
+   <div class="container">
+      <div class="row">
+         <div class="col text-center">
+            <div class="winners glide">
+                  <div class="slider__track glide__track" data-glide-el="track">
+                    {% if winners %}
+                        <ul class="slider_slides glide__slides">
+                          {% for winner in winners %}
+                          <li class="glide__slide">
+                             <img src="{{ winner.photo_main.url }}" alt="">
+                          </li>
+                        </ul>
+                        {% endfor %}
+                        {% else %}
+                        <div class="col-md-12">
+                          <h1>No Winners Just Yet</h1>
+                        </div>
+                        {% endif %}
+                      </div>
+               <!-- <div class="glide__arrows" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+                  <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button> -->
+               </div>
+               <div class="glide__bullets" data-glide-el="controls[nav]">
+                  <button class="glide__bullet" data-glide-dir="=0"></button>
+                  <button class="glide__bullet" data-glide-dir="=1"></button>
+                  <button class="glide__bullet" data-glide-dir="=2"></button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+{% endblock %}

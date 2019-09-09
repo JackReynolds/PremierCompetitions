@@ -19,10 +19,6 @@ html, body {
    border-bottom: #fff solid 2px !important; 
 }
 
-.nav-link {
-   letter-spacing: 1px;
-   text-transform: uppercase;
-}
 
 #main { 
    height: 100%;

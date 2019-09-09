@@ -33,6 +33,8 @@ function scrollAppear(){
 
 window.addEventListener('scroll', scrollAppear);
 
+
+
 // function testAppear(){
 //   const test = document.querySelector('.test');
 //   const introPosition = test.getBoundingClientRect().top;

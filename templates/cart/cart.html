@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{ competition.title }} {% endblock %}
+
+ {% block content %}
+
+ {% if not cart_items %}
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-md-6 text-center">
+            <h2 class="empty-shopping-basket">Your Shopping Basket Is Empty</h2>
+         </div>
+      </div>
+      <div class="row justify-content-center">
+         <div class="col-md-6 text-center">
+            <a href="{% url 'competitions' %}" class="btn btn-dark btn-block mb-5 go-to-active">See Our Active Competitions</a>
+         </div>
+      </div>
+   </div>
+
+{% else %}
+
+<!-- Cart Showcase -->
+ <section id="showcase-inner-cart" class="text-white">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <h1 class="display-4">Shopping Cart <i class="fas fa-shopping-cart"></i></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- <div class="row mx-auto">
+      <div class="col-sm-12 col-md-12 col-lg-6 text-center">
+         <table class="table my_custom_table">
+            <thead class="my_custom_thead">
+               <tr>
+                  <th colspan="5" class="cart-table-heading">
+                     Your Items
+                  </th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for cart_item in cart_items %}
+                  <tr>
+                     <td>
+                        <a href="{{ cart_item.competition.get_absolute_url }}"><img src="{{ cart_item.competition.photo_main.url }}" alt="" class="float-left rounded cart_image"></a>
+                     </td>
+                     <td class="text-left table-text">
+                        {{ cart_item.competition.title }}
+                        <br>
+                        Stock Keep Unit ID: {{ cart_item.competition.id }}
+                        <br>
+                        Unit price: €{{ cart_item.competition.price_of_ticket }}
+                        <br>
+                        Quantity: {{ cart_item.quantity }} x €{{ cart_item.competition.price_of_ticket }}
+                     </td>
+                     <td class="table-text">
+                        €{{ cart_item.sub_total }}
+                     </td>
+                     {% if cart_item.quantity < cart_item.competition.tickets_remaining %}
+                        <td>
+                           <a href="{% url 'cart:add_cart' cart_item.competition.id %}" class="custom_a"><i class="fas fa-plus-circle custom_icon"></i></a>&nbsp;<a href="{% url 'cart:add_cart' cart_item.competition.id %}" class="custom_a"><i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;<a href="{% url 'cart:full_remove' cart_item.competition.id %}" class="custom_a"><i class="fas fa-trash-alt custom_icon"></i></a>
+                        </td>
+                        {% else %}
+                        <td>
+                           &nbsp;<a href="{% url 'cart:cart_remove' cart_item.competition.id %}" class="custom_a"><i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;<a href="{% url 'cart:full_remove' cart_item.competition.id %}" class="custom_a"><i class="fas fa-trash-alt custom_icon"></i></a>
+                        </td>
+                        {% endif %}
+                        <td></td>
+                  </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6 text-center">
+         <table class="table my_custom_table">
+            <thead class="my_custom_thead">
+               <tr>
+                  <th class="cart-table-heading">Checkout</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td class="table-text">
+                     Please review your shopping cart before proceeding with the order.
+                  </td>
+               </tr>
+               <tr>
+                  <td class="text-left table-text">
+                     Your total is € <strong>{{ total }}</strong>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <div class="mx-auto">
+            <a href="{% url 'competitions' %}" class="btn btn-dark btn-block my_custom_button">Continue Shopping</a>
+         </div>
+      </div>
+   </div>
+   <br> -->
+
+
+   <div class="container-fluid">
+      <div class="row justify-content-center mt-4">
+         <div class="col-md-6 text-center">
+            <h3 class="your-items pb-3 mb-4">Your Items</h3>
+         </div>
+         <!-- <div class="col-md-6 text-center">
+            <h3 class="your-items pb-3">Checkout</h3>
+            <br>
+         </div> -->
+      </div>
+         {% for cart_item in cart_items %}
+         <div class="row justify-content-center">
+               <div class="col-md-2 text-center">
+                     <a href="{{ cart_item.competition.get_absolute_url }}"><img src="{{ cart_item.competition.photo_main.url }}" alt="" class="rounded cart_image mb-4"></a>
+                   </div>
+                   <div class="col-md-2 text-center table-text">
+                      Competition: {{ cart_item.competition.title }}
+                      <!-- <br>
+                      Stock Keep Unit ID: {{ cart_item.competition.id }} -->
+                      {% if cart_item.competition.sale_ticket_price %}
+                        <br>
+                        Ticket price: €{{ cart_item.competition.sale_ticket_price }}
+                        <br>
+                        Quantity: {{ cart_item.quantity }} x €{{ cart_item.competition.sale_ticket_price }}
+                        <br>
+                        Ticket Number(s): {{ cart_item.ticket_numbers }}
+                        <br>
+                      {% else %}
+                        <br>
+                        Ticket price: €{{ cart_item.competition.price_of_ticket }}
+                        <br>
+                        Quantity: {{ cart_item.quantity }} x €{{ cart_item.competition.price_of_ticket }}
+                        <br>
+                        Ticket Number(s): {{ cart_item.ticket_numbers }}
+                        <br>
+                      {% endif %}
+                      
+                      <!-- Competition Tickets Remaining: {{ cart_item.competition.tickets_remaining }} -->
+                   </div>
+                   <div class="col-md-1 text-center table-text">
+                      €{{ cart_item.sub_total }}
+                   </div>
+                   <div class="col-md-1 text-center">
+                      {% if cart_item.quantity < cart_item.competition.remaining_tickets %}
+                         <a href="{% url 'cart:plus_icon' cart_item.competition.id %}" class="custom_a"><i class="fas fa-plus-circle custom_icon"></i></a>&nbsp;
+                         <a href="{% url 'cart:cart_remove' cart_item.competition.id %}" class="custom_a"><i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
+                         <a href="{% url 'cart:full_remove' cart_item.competition.id %}" class="custom_a"><i class="fas fa-trash-alt custom_icon"></i></a>
+                      {% else %}
+                         &nbsp;<a href="{% url 'cart:cart_remove' cart_item.competition.id %}" class="custom_a"><i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;<a href="{% url 'cart:full_remove' cart_item.competition.id %}" class="custom_a"><i class="fas fa-trash-alt custom_icon"></i></a>
+                      {% endif %}
+                      </div>
+               </div>
+               {% endfor %}
+            </div>
+            <div class="container-fluid">
+               <div class="row justify-content-center">
+                  <div class="col-md-6 text-center">
+                     <p class="table-text your-items pb-4">Please review your shopping cart before proceeding with the order.</p> 
+                     <p class="table-text total">
+                     Your total is € <strong>{{ total }}</strong>
+
+                     <a href="#checkOut" class="mt-4 btn btn-dark btn-block my_custom_button">Checkout</a>
+         
+
+
+                     <a href="{% url 'competitions' %}" class="btn btn-dark btn-block my_custom_button mt-4">Continue Shopping</a>
+               </div>
+         </div>
+      </div>
+
+{% endif %}
+
+ {% endblock %}
+

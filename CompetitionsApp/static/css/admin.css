@@ -1,0 +1,23 @@
+/* @import url('https://fonts.googleapis.com/css?family=Palanquin:300&display=swap');
+
+* {
+   font-family: 'Palanquin', sans-serif;
+} */
+
+#header {
+   height: 50px;
+   color: #fff;
+   margin-bottom: 8px;
+}
+
+
+#branding h1{
+   color: #fff;
+   letter-spacing: 1px;
+   font-size: 25px;
+}
+
+a {
+   font-size: 14px;
+}
+

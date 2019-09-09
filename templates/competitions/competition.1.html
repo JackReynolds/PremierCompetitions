@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+{% block title %} | {{ competition.title }} {% endblock %}
+
+ {% block content %}
+ 
+ <!--Compeititon Showcase -->
+ <section id="showcase-inner-competition" class="py-5 text-white">
+   <div class="container showcase-competition">
+     <div class="row text-center">
+       <div class="col-md-12">
+         <h1 class="display-4 mt-3 animated fadeIn slow">{{ competition.title }}</h1>
+       </div>
+     </div>
+   </div>
+ </section>
+
+ <!-- Breadcrumb -->
+ <section id="bc" class="mt-3">
+   <div class="container">
+     <nav>
+       <ol class="breadcrumb">
+           <li class="breadcrumb-item">
+                 <a href="{% url 'index' %}">
+                   <i class="fas fa-home"></i> Home</a>
+               </li>
+         <li class="breadcrumb-item">
+           <a href="{% url 'competitions' %}">Competitions</a>
+         </li>
+         <li class="breadcrumb-item active">{{ competition.title }}</li>
+       </ol>
+     </nav>
+   </div>
+ </section>
+
+ <!-- Competition -->
+ <section id="listing" class="py-4">
+   <div class="container">
+     <div class="row justify-content-center">
+       <div class="col-md-10">
+         <!-- Product Main Image -->
+         <img src="{{ competition.photo_main.url }}" alt="" class="img-main img-fluid mb-3">
+         <!-- Thumbnails -->
+         <div class="row mb-5 thumbs">
+           {% if competition.photo_1 %}
+           <div class="col-md-2">
+             <a href="{{ competition.photo_1.url }}" data-lightbox="home-images">
+               <img src="{{ competition.photo_1.url }}" alt="" class="img-fluid">
+             </a>
+           </div>
+           {% endif %}
+           {% if competition.photo_2 %}
+           <div class="col-md-2">
+             <a href="{{ competition.photo_2.url }}" data-lightbox="home-images">
+               <img src="{{ competition.photo_2.url }}" alt="" class="img-fluid">
+             </a>
+           </div>
+           {% endif %}
+           {% if competition.photo_3 %}
+           <div class="col-md-2">
+             <a href="{{ competition.photo_3.url }}" data-lightbox="home-images">
+               <img src="{{ competition.photo_3.url }}" alt="" class="img-fluid">
+             </a>
+           </div>
+           {% endif %}
+           {% if competition.photo_4 %}
+           <div class="col-md-2">
+             <a href="{{ competition.photo_4.url }}" data-lightbox="home-images">
+               <img src="{{ competition.photo_4.url }}" alt="" class="img-fluid">
+             </a>
+           </div>
+           {% endif %}
+           {% if competition.photo_5 %}
+           <div class="col-md-2">
+             <a href="{{ competition.photo_5.url }}" data-lightbox="home-images">
+               <img src="{{ competition.photo_5.url }}" alt="" class="img-fluid">
+             </a>
+           </div>
+           {% endif %}
+           {% if competition.photo_5 %}
+           <div class="col-md-2">
+             <a href="{{ competition.photo_6.url }}" data-lightbox="home-images">
+               <img src="{{ competition.photo_6.url }}" alt="" class="img-fluid">
+             </a>
+           </div>
+           {% endif %}
+         </div>
+        </div>
+
+        <div class="container">
+           <!-- Product Details/Description -->
+         <div class="row mb-5">
+              <div class="col-md-9">
+              <h2 class="product-details mb-4">Product Description</h2>
+                <p>{{ competition.description|linebreaks }}</p>
+              </div>
+            </div>
+
+            <hr class="mb-4">
+
+         <!-- Compeition Details -->
+         <div class="row mb-5 fields">
+           <div class="col-md-6">
+              <h2 class="product-details mb-4">Competition Details</h2>
+             <ul class="list-group list-group-flush">
+               <li class="list-group-item text-dark competition-details">
+                 <i class="fas fa-money-bill-alt"></i> Ticket Price:
+                 <span class="float-right">{{ competition.price_of_ticket }}</span>
+               </li>
+               <li class="list-group-item text-dark competition-details">
+                 <i class="fas fa-ticket-alt"></i> Total number of tickets:
+                 <span class="float-right">{{ competition.number_of_tickets }}</span>
+               </li>
+               <li class="list-group-item text-dark competition-details">
+                 {% if competition.tickets_remaining == 0 %}
+                  <i class="fas fa-times"></i> Competition Sold Out
+                 {% else %}
+                  <i class="fas fa-hourglass-half"></i> Number of tickets remaining:
+                  <span class="float-right">{{ competition.tickets_remaining }}</span>
+                 {% endif %}
+               </li>
+               <li class="list-group-item pt-3 text-dark competition-details">
+                  <div class="progress" style="height: 28px;">
+                      <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-valuenow="{{ competition.percentage_tickets_sold }}"
+                      aria-valuemin="0" aria-valuemax="100" style="width:{{ competition.percentage_tickets_sold }}%">{{ competition.percentage_tickets_sold }}% Sold      
+                      </div>
+                    </div>
+               </li>
+             </ul>
+           </div>
+
+           <div class="col-md-6">
+              <div class="countdown-container">
+                 <!-- COUNTDOWN TIMER - how to I alter this per competition? -->
+                 <h2 class="mb-3 countdown-heading">Countdown Clock</h2>
+                 <h2 class="countdown-timer"></h2>
+                 <h2 class="end-date-text text-center">End Date: <span class="end-date">{{ competition.end_date }}</span></h2>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <h2 class="mb-3 product-details">Pick Your Ticket Numbers</h2>
+                <div class="nav nav-tabs" role="tablist">
+                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-0" data-tab-index="0" role="tab" aria-controls="nav-home" aria-selected="true">1-100</a>
+                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-1" data-tab-index="0" role="tab" aria-controls="nav-home" aria-selected="true">101-200</a>
+                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-2" data-tab-index="0" role="tab" aria-controls="nav-home" aria-selected="true">201-250</a>
+                 </div>
+                 <div class="tab-content" id="new-tabContent">
+                  <div class="tab-pane fade show active" id="tab-0" role="tabpanel" aria-labelledby="nav-home-tab">
+                    {% for i in range(competition.number_of_tickets) %}
+                      <button disabled style="width: 60px; height: 60px; background-color: rgb(203, 47, 45); display: flex; justify-content: center; align-items: center; border-width: 1px; border-color: rgb(203, 47, 45); margin: 2px; cursor: default;"><div style="color: white;">{{i}}</div></button>
+                    {% endfor %}
+                  </div>
+                 </div>
+            </div>
+          </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="mt-5 competition-question-heading">Competition Question</h2>
+                    <hr>
+                    {% include 'partials/_alerts.html' %}
+                    <form action="{% url 'cart:add_cart' competition.id %}" method="POST">
+                      {% csrf_token %}
+                      <h4 class="mt-4">{{ competition.question }}</h3>
+                        <h4 class="warning mb-3"><strong>Note: You MUST answer the question correctly to enter the competition!</strong></h4>
+                        <select class="form-control" name="question_answer" required>
+                            <option>Choose an Option</option>
+                            <option value="{{ competition.wrong_answer1 }}">{{ competition.wrong_answer1 }}</option>
+                            <option value="{{ competiton.wrong_answer2 }}">{{ competition.wrong_answer2 }}</option>
+                            <option value="{{ competition.right_answer }}">{{ competition.right_answer }}</option>
+                         </select>
+                         <h4 class="my-3 quantity">Quantity: </h4>
+                          <select class="form-control" name="quantity" id="" required>
+                              <option>0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                         </select>
+      
+      
+                         <input type="submit" value=
+                         {% if user.is_authenticated %}
+                         "Add To Cart"
+                         {% else %}
+                         "Log in to add to the cart" disabled
+                         {% endif %}
+                         class="btn btn-dark btn-block mt-3 add-to-cart-button">
+                    </form>
+                  </div>
+            </div>
+              </div>
+            </div>
+         </div> 
+       </div>
+ </section>
+
+
+{% endblock %}
