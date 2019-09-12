@@ -448,8 +448,8 @@ footer {
 
    #main {
       background: url(../img/lambo.jpg) no-repeat center center fixed;
-      
-      background-attachment: scroll !important;
+      background-size: cover;
+      background-attachment: fixed !important;
    } 
 }
 
