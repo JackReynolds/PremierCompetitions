@@ -440,12 +440,20 @@ footer {
    MEDIA QUERIES
 */
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 768px) {
    #competition-main-image {
       height: 350px;
       width: 350px;
    }
+
+   #main {
+      background: url(../img/lambo.jpg) no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: scroll !important;
+   } 
 }
+
+
 
 
 @media only screen and (max-width: 600px) {
