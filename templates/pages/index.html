@@ -26,7 +26,7 @@
   </section>
 
 <!-- Latest Competitions Image  -->
-<section id="showcase-inner-latest-competitions" class="text-white mt-3">
+<section id="showcase-inner-latest-competitions" class="text-white mt-1">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-12">
@@ -50,7 +50,7 @@
               <img class="card-img-top competitions-card-image" src="{{ competition.photo_main.url }}" alt="" style="width: 350px text-align: center; height: 300px;">
               <div class="card-body">
                 <div class="listing-heading text-center">
-                  <h4 class="text-primary">{{ competition.title }}</h4>
+                  <h4 class="text-dark"><strong>{{ competition.title }}</strong></h4>
                 </div>
                 <hr>
                 <div class="row py-2 text-dark">
@@ -64,7 +64,7 @@
                         {% if competition.sale_ticket_price %} 
                         <strike>€ {{ competition.price_of_ticket }}</strike> &nbsp; €{{ competition.sale_ticket_price }}</span></div>
                         {% else %}
-                          {{ competition.price_of_ticket }}</span></div>
+                        € {{ competition.price_of_ticket }}</span></div>
                         {% endif %}
                    </div>
                    <hr>
@@ -79,7 +79,7 @@
           </div>
           {% endfor %}
         {% else %}
-          <div class="col-md-12">
+          <div class="col-md-12 text-center">
             <h1>No Competitions Available Yet</h1>
           </div>
         {% endif %}

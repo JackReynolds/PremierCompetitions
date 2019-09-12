@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Palanquin:300&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Palanquin:300&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css?family=Barlow:300&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Assistant|Barlow:300|Cairo:300|Comfortaa|M+PLUS+1p:300&display=swap');
 
 html, body { 
-   font-family: 'Palanquin', sans-serif;
+   /* font-family: 'Palanquin', sans-serif; */
+   font-family: 'Assistant', sans-serif;
    font-weight: 300;
    font-size: 18px;
    line-height: 30px;
@@ -16,6 +20,9 @@ html, body {
    min-height: 100vh;
 }
 
+img {
+   border-radius: 5px;
+}
 
 /*
    INDEX 
@@ -88,7 +95,7 @@ img {
    overflow: hidden;
    min-height: 150px; }
 
-.competitions-text {
+.competitions-text, .winners-text {
    font-size: 21px;
 }
 
@@ -104,6 +111,7 @@ img {
 .latest-competitions-heading, .previous-winners-heading { 
    letter-spacing: 5px;
    text-transform: uppercase;
+   margin-top: 55px;
    font-size: 35px;
 }
 
@@ -204,7 +212,6 @@ img {
 #competition-main-image {
    height: 450px;
    width: 600px;
-   text-align: center;
 }
 
 
@@ -433,6 +440,13 @@ footer {
    MEDIA QUERIES
 */
 
+@media only screen and (max-width: 770px) {
+   #competition-main-image {
+      height: 350px;
+      width: 350px;
+   }
+}
+
 
 @media only screen and (max-width: 600px) {
    .main-heading {
@@ -475,6 +489,14 @@ footer {
       text-align: center;
    }
 
+   /* 
+      LATEST COMPETITIONS ON INDEX PAGE
+   */
+
+   #showcase-inner-latest-competitions {
+      min-height: 120px;
+   }
+
    /*
       ACTIVE COMPETITIONS
    */
@@ -486,7 +508,7 @@ footer {
    }
 
    #competitions-showcase-inner {
-      min-height: 150px;
+      min-height: 120px;
    }
 
    #competitions-showcase-inner .page-heading {
@@ -515,7 +537,7 @@ footer {
    }
 
    #showcase-inner-competition {
-      min-height: 130px;
+      min-height: 120px;
    }
 
    .img-main {
@@ -537,7 +559,6 @@ footer {
    #competition-main-image {
       height: 250px;
       width: 250px;
-      text-align: center;
    }
 
 
@@ -645,7 +666,7 @@ footer {
    }
 
    #terms-showcase-inner {
-      min-height: 140px;
+      min-height: 120px;
    }
 
 

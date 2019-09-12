@@ -36,10 +36,10 @@
  <!-- Competition -->
  <section id="listing" class="py-4">
    <div class="container">
-     <div class="row justify-content-center">
-       <div class="col-md-6">
+     <div class="row">
+       <div class="col text-center">
          <!-- Product Main Image -->
-         <img src="{{ competition.photo_main.url }}" alt="" class="img-main mb-3" id="competition-main-image">
+         <img src="{{ competition.photo_main.url }}" alt="" class="img-main mb-3 text-center" id="competition-main-image">
          <!-- Thumbnails -->
          <div class="row justify-content-center mb-5 thumbs">
            {% if competition.photo_1 %}
@@ -112,7 +112,7 @@
                  {% if competition.sale_ticket_price %}
                     <span class="competitions-text float-right"><strike>€{{ competition.price_of_ticket }}</strike> &nbsp; €{{ competition.sale_ticket_price }}</span>
                     {% else %}
-                    <span class="competitions-text float-right">{{ competition.price_of_ticket }} </span>
+                    <span class="competitions-text float-right">€{{ competition.price_of_ticket }} </span>
                  {% endif %}            
                </li>
                <li class="list-group-item text-dark competition-details">

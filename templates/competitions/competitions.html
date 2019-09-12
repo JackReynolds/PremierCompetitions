@@ -30,7 +30,7 @@
       </div>
     </section>
 
-   <section id="active-competitions" class="my-4 py-3">
+   <section id="active-competitions" class="my-4">
          <div class="container wrapper">
            <div class="row">
             {% if competitions %}
@@ -40,7 +40,7 @@
                      <img class="card-img-top active-competitions-main-image" src="{{ competition.photo_main.url }}" alt="" style="width: 350px text-align: center; height: 300px;">
                      <div class="card-body">
                        <div class="listing-heading text-center">
-                         <h4 class="text-primary">{{ competition.title }}</h4>
+                         <h4 class="text-dark"><strong>{{ competition.title }}</strong></h4>
                        </div>
                        <hr>
                        <div class="row py-2 text-dark">
@@ -51,7 +51,7 @@
                        <div class="row py-2 text-dark">
                             <div class="col text-center">
                                {% if competition.sale_ticket_price %}
-                               <i class="fas fa-money-bill"></i> <span class="competitions-text">Ticket Price: <strike>€{{ competition.price_of_ticket }}</strike> &nbsp; €{{ competition.sale_ticket_price }}</span></div>
+                               <i class="fas fa-money-bill"></i> <span class="competitions-text">Ticket Price: <strike>€{{ competition.price_of_ticket }}</strike> &nbsp; <strong>€{{ competition.sale_ticket_price }}</strong></span></div>
                                {% else %}
                                <i class="fas fa-money-bill"></i> <span class="competitions-text">Ticket Price: € {{ competition.price_of_ticket }} </span></div>
                                {% endif %}

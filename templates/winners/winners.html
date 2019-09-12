@@ -46,21 +46,21 @@
                 <hr>
                 <div class="row py-2 text-dark">
                   <div class="col text-center">
-                    <i class="fas fa-ticket-alt"></i> Number of tickets: {{ winner.number_of_tickets }}</div>
+                    <i class="fas fa-ticket-alt"></i> <span class="winners-text">Number of tickets: {{ winner.number_of_tickets }}</span></div>
                 </div>
                 <hr>
                 <div class="row py-2 text-dark">
-                     <div class="col text-center">
+                     <div class="col text-center winners-text">
                        <i class="fas fa-euro-sign"></i> Ticket Price: {{ winner.price_of_ticket }}</div>
                    </div>
                    <hr>
                 <div class="row text-dark pb-2">
-                  <div class="col text-center">
+                  <div class="col text-center winners-text">
                     <i class="fas fa-trophy"></i> <strong>Winner: {{ winner.first_name}} {{ winner.last_name }}</strong></div>
                 </div>
                 <hr>
                 <div class="row text-dark pb-2">
-                  <div class="col text-center">
+                  <div class="col text-center winners-text">
                     <i class="fas fa-award"></i> <strong>Winning Ticket Number: {{ winner.winning_ticket_number }}</strong></div>
                 </div>
                 <!-- <hr>
