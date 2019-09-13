@@ -42,7 +42,7 @@ img {
    width: 100%;
    background: url(../img/lambo.jpg) no-repeat center center fixed;
    display: table;
-   z-index: 10;
+   
    background-size: cover;
    position: relative;
  }
@@ -451,7 +451,7 @@ footer {
       background-size: cover;
       background-attachment: scroll !important;
       -webkit-transform: translate3d(0, 0, 0);
-      z-index: -1;
+      
    } 
 
    body {
