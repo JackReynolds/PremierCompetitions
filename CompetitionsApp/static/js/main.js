@@ -47,6 +47,12 @@ setTimeout(function(){
   $('#message').fadeOut('slow');
 }, 3000);
 
+
+navBar = document.querySelector('.navbar'); 
+if (window.innerWidth < 700) {
+  navBar.classList.add('fixed-top');
+}
+
 // function testAppear(){
 //   const test = document.querySelector('.test');
 //   const introPosition = test.getBoundingClientRect().top;
@@ -145,9 +151,3 @@ setTimeout(function(){
     countdown.innerHTML = 'Draw taking place soon, check details on page!'
   }
 }, 1000);
-
-
-navBar = document.querySelector('.navbar'); 
-if (window.innerWidth < 700) {
-  navBar.classList.add('fixed-top');
-}

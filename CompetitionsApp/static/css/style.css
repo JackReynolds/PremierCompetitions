@@ -93,7 +93,7 @@ img {
    background: url(../img/luxuryPattern.jpg) no-repeat top center fixed/cover;
    position: relative;
    overflow: hidden;
-   min-height: 150px; }
+   min-height: 140px; }
 
 .competitions-text, .winners-text {
    font-size: 21px;
@@ -108,7 +108,7 @@ img {
    background-color: #EFF3F3;
 }
 
-.latest-competitions-heading, .previous-winners-heading { 
+.latest-competitions-heading, .previous-winners-heading  { 
    letter-spacing: 5px;
    text-transform: uppercase;
    margin-top: 45px;
@@ -194,7 +194,7 @@ img {
    background: url(../img/luxuryPattern.jpg) no-repeat top center fixed/cover;
    position: relative;
    overflow: hidden;
-   min-height: 200px; 
+   min-height: 160px; 
 }
 
 .competition-details {
@@ -458,6 +458,12 @@ footer {
    body {
       overflow-y: scroll;
       -webkit-overflow-scrolling: touch;
+      }
+
+      /* Margin top on each page due to iOS navbar bug */
+
+      #showcase-inner-competition, #showcase-inner-latest-competitions, #competitions-showcase-inner, #winners-showcase-inner, .main-heading, #showcase-inner-about-us, #showcase-inner-faq, #showcase-inner-dashboard, #terms-showcase-inner, #showcase-inner-cart   {
+         margin-top: 100px;
       }
 }
 
