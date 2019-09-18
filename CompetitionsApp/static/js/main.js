@@ -145,3 +145,9 @@ setTimeout(function(){
     countdown.innerHTML = 'Draw taking place soon, check details on page!'
   }
 }, 1000);
+
+
+navBar = document.querySelector('.navbar'); 
+if (window.innerWidth < 700) {
+  navBar.classList.add('fixed-top');
+}

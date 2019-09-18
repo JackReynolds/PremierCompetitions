@@ -48,7 +48,7 @@ img {
  }
 
  .main-heading {
-   margin-top: 100px;
+   margin-top: 50px;
    text-transform: uppercase;
    text-align: center;
    vertical-align: middle;
@@ -111,7 +111,7 @@ img {
 .latest-competitions-heading, .previous-winners-heading { 
    letter-spacing: 5px;
    text-transform: uppercase;
-   margin-top: 55px;
+   margin-top: 45px;
    font-size: 35px;
 }
 
@@ -425,9 +425,10 @@ footer {
 }
 
 .empty-shopping-basket {
-   margin: 50px 0 50px 0;
+   margin: 75px 0 75px 0;
    letter-spacing: 1px;
    text-transform: uppercase;
+   font-size: 20px;
 }
 
 .go-to-active {
@@ -511,7 +512,7 @@ footer {
       background: url(../img/luxuryPattern.jpg) no-repeat top center fixed/cover;
       position: relative;
       overflow: hidden;
-      min-height: 150px;
+      min-height: 120px;
    }
 
    /*
@@ -525,7 +526,7 @@ footer {
    }
 
    #competitions-showcase-inner {
-      min-height: 150px;
+      min-height: 120px;
    }
 
    #competitions-showcase-inner .page-heading {
@@ -638,7 +639,7 @@ footer {
    }
 
    #showcase-inner-faq {
-      min-height: 140px;
+      min-height: 130px;
    }
 
    .btn {
