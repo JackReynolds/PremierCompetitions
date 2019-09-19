@@ -141,9 +141,9 @@
    <div class="container">
       <div class="row">
          <div class="col text-center">
+            {% if winners %}
             <div class="winners glide">
                   <div class="slider__track glide__track" data-glide-el="track">
-                    {% if winners %}
                         <ul class="slider_slides glide__slides">
                           {% for winner in winners %}
                           <li class="glide__slide">
