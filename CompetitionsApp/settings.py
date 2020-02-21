@@ -25,7 +25,7 @@ SECRET_KEY = 'ss#b807eu9=j2+-5m!m^a8h&4ea5cehkvr!usv4d1g=6fnz+!*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [premier]
 
 
 # Application definition
@@ -142,3 +142,8 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
