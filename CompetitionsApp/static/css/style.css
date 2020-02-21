@@ -90,7 +90,7 @@ img {
 }
 
 #showcase-inner-latest-competitions {
-   background: url(../img/luxuryPattern.jpg) no-repeat top center fixed/cover;
+   background: url(../img/luxuryPattern.jpg) no-repeat top center fixed;
    position: relative;
    overflow: hidden;
    min-height: 140px; }
