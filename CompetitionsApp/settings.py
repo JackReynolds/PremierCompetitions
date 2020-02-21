@@ -25,7 +25,7 @@ SECRET_KEY = 'ss#b807eu9=j2+-5m!m^a8h&4ea5cehkvr!usv4d1g=6fnz+!*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [premier]
+ALLOWED_HOSTS = ['165.22.116.185', 'premiercompetitions.ie', 'www.premiercompetitions.ie']
 
 
 # Application definition
